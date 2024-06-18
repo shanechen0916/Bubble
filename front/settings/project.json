@@ -1,0 +1,60 @@
+{
+  "collision-matrix": [
+    [
+      true
+    ]
+  ],
+  "design-resolution-height": 1280,
+  "design-resolution-width": 720,
+  "excluded-modules": [
+    "Canvas Renderer",
+    "TiledMap",
+    "Spine Skeleton",
+    "DragonBones",
+    "MotionStreak",
+    "ProgressBar",
+    "PageView",
+    "PageViewIndicator",
+    "Slider",
+    "VideoPlayer",
+    "WebView",
+    "NodePool",
+    "StudioComponent",
+    "Intersection",
+    "Native NetWork",
+    "Geom Utils",
+    "3D",
+    "3D Primitive",
+    "3D Physics/cannon.js",
+    "3D Physics/Builtin",
+    "3D Particle",
+    "SafeArea"
+  ],
+  "facebook": {
+    "appID": "",
+    "audience": {
+      "enable": false
+    },
+    "enable": false,
+    "live": {
+      "enable": false
+    }
+  },
+  "fit-height": false,
+  "fit-width": true,
+  "group-list": [
+    "default"
+  ],
+  "last-module-event-record-time": 1718480413219,
+  "simulator-orientation": false,
+  "simulator-resolution": {
+    "height": 640,
+    "width": 960
+  },
+  "use-customize-simulator": false,
+  "use-project-simulator-setting": false,
+  "start-scene": "current",
+  "migrate-history": [
+    "cloud-function"
+  ]
+}

@@ -1,0 +1,5 @@
+
+# 2 space indentation
+[*.{js,html,css,json}]
+indent_style = space
+indent_size = 4

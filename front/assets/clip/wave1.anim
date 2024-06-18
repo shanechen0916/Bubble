@@ -1,0 +1,39 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "wave1",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 2.4,
+  "sample": 25,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "props": {
+      "x": [
+        {
+          "frame": 0,
+          "value": 352.5
+        },
+        {
+          "frame": 2.4,
+          "value": 391
+        }
+      ],
+      "y": [
+        {
+          "frame": 0,
+          "value": 165
+        },
+        {
+          "frame": 1.2,
+          "value": 170
+        },
+        {
+          "frame": 2.4,
+          "value": 165
+        }
+      ]
+    }
+  },
+  "events": []
+}
