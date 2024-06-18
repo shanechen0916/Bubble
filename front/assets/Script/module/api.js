@@ -2,9 +2,7 @@ let token = '';
 const host = 'http://api.bit123.finance';
 // const host = 'http://localhost:8787';
 
-// const tgInitData = window.Telegram && window.Telegram.webApp && window.Telegram.webApp.initData;
-
-let tgInitData = '';
+const tgInitData = window.Telegram && window.Telegram.webApp && window.Telegram.webApp.initData;
 
 function getUserInfo() {
     if (!tgInitData) {
