@@ -1,5 +1,5 @@
 let token = '';
-const host = 'http://api.bit123.finance';
+const host = 'https://api.bit123.finance';
 // const host = 'http://localhost:8787';
 
 function getUserInfo() {
