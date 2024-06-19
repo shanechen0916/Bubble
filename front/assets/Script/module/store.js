@@ -7,7 +7,7 @@ const globalData = require('globalData');
 const { getUserInfo, updateScore, scoreQueneRunner } = require('api');
 
 function update2Storage () {
-    isReadyPromise.then(() => {
+    isReady().then(() => {
         cc.sys.localStorage.setItem(`u:${globalData.uid}:global`, JSON.stringify(globalData));
         scoreQueneRunner(() => updateScore(globalData.score));
     });
@@ -51,7 +51,15 @@ function updatebyStorage () {
     });
 }
 
-let isReadyPromise = updatebyStorage();
+let isReady = (() => {
+    let promise;
+    return () => {
+        if (!promise) {
+            promise = updatebyStorage();
+        }
+        return promise;
+    }
+})();
 
 function objectToArr (globalKey) {
     let newArr = [];
@@ -74,7 +82,8 @@ function objectToArr (globalKey) {
 let store = {
     global: globalData,
     save: debounceUpdate,
-    ready: () => isReadyPromise
+    sync: updatebyStorage,
+    ready: isReady
 };
 
 module.exports = store;

@@ -46,6 +46,10 @@
       window.CC_PHYSICS_CANNON = #{enableCannonPhysics};
       window.CC_PHYSICS_BUILTIN = #{enableBuiltinPhysics};
 
+    script(type='text/javascript').
+      window.Telegram.WebApp.ready();
+      console.log('>>>>tg', window.Telegram.WebApp.initData);
+
     if enableDebugger
       script(type='text/javascript' charset='utf-8' src='app/node_modules/vconsole/dist/vconsole.min.js')
     script(type='text/javascript' charset='utf-8' src='app/engine/bin/' + cocos2d)

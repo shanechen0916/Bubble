@@ -2,12 +2,9 @@ let token = '';
 const host = 'http://api.bit123.finance';
 // const host = 'http://localhost:8787';
 
-const tgInitData = window.Telegram && window.Telegram.webApp && window.Telegram.webApp.initData;
-
-console.log('>>>>>>tginitdata:', tgInitData);
-
 function getUserInfo() {
-    if (!tgInitData) {
+    console.log('>>>>>tgInitData', window.Telegram.WebApp.initData);
+    if (!window.Telegram.WebApp.initData) {
         return Promise.resolve();
     }
     return fetch(`${host}/user/info`, {
@@ -15,7 +12,7 @@ function getUserInfo() {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ initData: tgInitData }),
+        body: JSON.stringify({ initData: window.Telegram.WebApp.initData }),
     }).then(res => res.json())
     .then(res => {
         if (res.code !== 0) {
@@ -35,7 +32,8 @@ function getUserInfo() {
 }
 
 function updateScore(score) {
-    if (!tgInitData) {
+    console.log('>>>>>tgInitData', window.Telegram.WebApp.initData);
+    if (!window.Telegram.WebApp.initData) {
         return Promise.resolve();
     }
     return fetch(`${host}/score/add`, {
@@ -43,7 +41,7 @@ function updateScore(score) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ initData: tgInitData, score, token }),
+        body: JSON.stringify({ initData: window.Telegram.WebApp.initData, score, token }),
     }).then(res => res.json())
     .then(res => {
         if (res.code !== 0) {
