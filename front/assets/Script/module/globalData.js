@@ -1,7 +1,7 @@
 module.exports = {
     uid: 0,
     username: '',
-    nickName: '',
+    nickname: 'xin12312',
     score: 0,
     totalScore: 0,
     wallet: '',

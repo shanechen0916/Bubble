@@ -44,12 +44,21 @@ cc.Class({
         }
     },
 
+    async connectToWallet() {
+        const connectedWallet = await tonConnectUI.connectWallet();
+        // 如果需要，可以对connectedWallet做一些事情
+        console.log(connectedWallet);
+    },
+
     onLoad () {
         this.closeBtn.on('click', this.onCloseBtn, this);
 
         this.myChangeBtn.on('click', function () {
-            // TODO: wallet connect
             console.log('connect wallet');
+            // 调用函数
+            connectToWallet().catch(error => {
+                console.error("Error connecting to wallet:", error);
+            });
         }, this);
 
         userInfo.wallet && (this.myCreatedName.string = userInfo.wallet);

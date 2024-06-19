@@ -99,7 +99,7 @@ cc.Class({
             return b.score - a.score;
         });
         
-        this.topName.string = tool.trimString(top1GroupMembers[0].nickName, 8);
+        this.topName.string = tool.trimString(top1GroupMembers[0].nickname, 8);
         this.topScore.string = top1GroupMembers[0].score;
     },
 });

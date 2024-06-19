@@ -25,15 +25,21 @@ cc.Class({
             type: cc.Node,
         },
 
+        topName: {
+            default: null,
+            type: cc.Label,
+        },
+
     },
     onLoad () {
         userInfo.bubbleCntForRest = 0;
-        
+
         cc.director.getPhysicsManager().enabled = true;
 
         this.node.on('peng', this.onPeng, this);
         store.ready().finally(() => {
             this.score.string = store.global.score;
+            this.topName.string = (userInfo.nickname || '').slice(0, 3);
         });
         this.showBubbles(false);
         this.rest = cc.find('Canvas/rest').getComponent('rest');
@@ -44,6 +50,7 @@ cc.Class({
 
     onPeng (e) {
         store.global.score++;
+        store.global.totalScore++;
         this.score.string = store.global.score;
         store.save();
         if(userInfo.bubbleCntForRest < userInfo.dstBubbleCntForRest - 12){

@@ -41,7 +41,7 @@ cc.Class({
         this.myGlobalScore.string = '0';
         this.myGlobalRank.string = '未上榜';
         this.myGlobalRankIma.node.active = false;
-        this.myNickName.string = tool.trimString(userInfo.nickName, 8);
+        this.myNickName.string = tool.trimString(userInfo.nickname, 8);
 
         this.globalCellList.map(v => v.x = -9999);
         let len = globalInfo.globalUsers.length;
@@ -88,7 +88,7 @@ cc.Class({
             if (i === 15 || i === 31 || i === 49) {
                 spaceStr = '\n'+ '\n'+ '\n';
             }
-            let groupNameStr = tool.trimString(globalInfo.globalUsers[i].nickName, 8) + spaceStr;
+            let groupNameStr = tool.trimString(globalInfo.globalUsers[i].nickname, 8) + spaceStr;
             let scoreStr = tool.formatNum(0) + spaceStr;
             let rankNumStr = (i + 1) + spaceStr;
             let index = 0;

@@ -625,8 +625,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "xin",
-    "_N$string": "xin",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -1383,6 +1383,9 @@
     },
     "fadeRankNode": {
       "__id__": 27
+    },
+    "topName": {
+      "__id__": 12
     },
     "_id": "92ZZ48ZphJrYe4Mns8lIZf"
   },
