@@ -27,10 +27,8 @@ cc.Class({
 
     },
     onLoad () {
-        window.Telegram.WebApp.ready();
-        console.log('>>>>tg', window.Telegram.WebApp.initData);
         userInfo.bubbleCntForRest = 0;
-
+        
         cc.director.getPhysicsManager().enabled = true;
 
         this.node.on('peng', this.onPeng, this);

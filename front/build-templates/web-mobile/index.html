@@ -188,6 +188,10 @@
     var splash = document.getElementById('splash');
     splash.style.display = 'block';
 
+    // set telegram web app ready
+    window.Telegram.WebApp.ready();
+    console.log('>>>>tg', window.Telegram.WebApp.initData);
+
     function loadScript (moduleName, cb) {
       function scriptLoaded () {
           document.body.removeChild(domScript);

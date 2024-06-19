@@ -4,6 +4,8 @@ const host = 'http://api.bit123.finance';
 
 const tgInitData = window.Telegram && window.Telegram.webApp && window.Telegram.webApp.initData;
 
+console.log('>>>>>>tginitdata:', tgInitData);
+
 function getUserInfo() {
     if (!tgInitData) {
         return Promise.resolve();

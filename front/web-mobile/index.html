@@ -174,9 +174,9 @@
 
 <script type='text/javascript' charset='utf-8' src='https://telegram.org/js/telegram-web-app.js'></script>
 
-<script src="src/settings.8a2cf.js" charset="utf-8"></script>
+<script src="src/settings.9f568.js" charset="utf-8"></script>
 
-<script src="main.2c8b9.js" charset="utf-8"></script>
+<script src="main.fcb98.js" charset="utf-8"></script>
 <script type="text/javascript">
 (function () {
     // open web debugger console
@@ -187,6 +187,10 @@
     var debug = window._CCSettings.debug;
     var splash = document.getElementById('splash');
     splash.style.display = 'block';
+
+    // set telegram web app ready
+    window.Telegram.WebApp.ready();
+    console.log('>>>>tg', window.Telegram.WebApp.initData);
 
     function loadScript (moduleName, cb) {
       function scriptLoaded () {
