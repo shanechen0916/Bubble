@@ -3007,7 +3007,7 @@
     },
     "_enabled": true,
     "autoMask": true,
-    "hideGaming": false,
+    "hideGaming": true,
     "canShowInTop": false,
     "myCreatedName": {
       "__id__": 19

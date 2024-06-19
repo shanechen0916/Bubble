@@ -2149,7 +2149,7 @@
     },
     "_enabled": true,
     "autoMask": true,
-    "hideGaming": false,
+    "hideGaming": true,
     "canShowInTop": false,
     "closeBtn": {
       "__id__": 52

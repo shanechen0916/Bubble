@@ -56,7 +56,7 @@ cc.Class({
         this.myChangeBtn.on('click', function () {
             console.log('connect wallet');
             // 调用函数
-            connectToWallet().catch(error => {
+            this.connectToWallet().catch(error => {
                 console.error("Error connecting to wallet:", error);
             });
         }, this);
