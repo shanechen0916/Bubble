@@ -45,7 +45,14 @@ cc.Class({
     },
 
     async connectToWallet() {
-        const connectedWallet = await tonConnectUI.connectWallet();
+        try {
+            const connectedWallet = await tonConnectUI.connectWallet();
+            console.log("Connected to wallet:", connectedWallet);
+        } catch(error) {
+            console.error("Error connecting to wallet:", error);
+            const connectedWallet = await tonConnectUI.restoreConnection();
+            console.log("Connected to wallet:", connectedWallet);
+        }
         // 如果需要，可以对connectedWallet做一些事情
         console.log(connectedWallet);
     },
@@ -64,7 +71,7 @@ cc.Class({
         userInfo.wallet && (this.myCreatedName.string = userInfo.wallet);
 
         userInfo.username && (this.username.string = userInfo.username);
-        userInfo.nickname && (this.nickname.string = userInfo.nickname);
+        userInfo.nickname && (this.nickname.string = userInfo.nickname.slice(0, 3));
         userInfo.totalScore && (this.score.string = userInfo.totalScore);
     },
 
@@ -78,7 +85,7 @@ cc.Class({
 
     onShow() {
         userInfo.username && (this.username.string = userInfo.username);
-        userInfo.nickname && (this.nickname.string = userInfo.nickname);
+        userInfo.nickname && (this.nickname.string = userInfo.nickname.slice(0, 3));
         userInfo.totalScore && (this.score.string = userInfo.totalScore);
     }
 

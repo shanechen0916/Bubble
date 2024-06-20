@@ -22,4 +22,17 @@ async function info(request, env, user) {
 	return res.success(data);
 }
 
-export default { info };
+async function bind(request, env, user) {
+	const { DATABASE } = env;
+	let stmt = DATABASE.prepare('SELECT * FROM user WHERE tg_id = ? LIMIT 1').bind(user.id);
+	let result = await stmt.first();
+	if (result.wallet) {
+		return res.error('已绑定');
+	}
+	const { wallet } = await request.json();
+	stmt = DATABASE.prepare('UPDATE user SET score = ? WHERE tg_id = ?').bind(wallet, user.id);
+	result = await stmt.run();
+	console.log('[user][bind] result %O', result);
+	return res.success();
+}
+export default { info, bind };

@@ -23,9 +23,9 @@ function send(code, message, data) {
 	})
 }
 
-function error() {
-	console.log('[res][error] Unknown Error');
-	return send(COMMON_ERROR_CODE, COMMON_ERROR_MESSAGE);
+function error(msg) {
+	console.log('[res][error] %s', msg || 'UNKNOWN ERROR');
+	return send(COMMON_ERROR_CODE, msg || COMMON_ERROR_MESSAGE);
 }
 
 function unauthorized() {
