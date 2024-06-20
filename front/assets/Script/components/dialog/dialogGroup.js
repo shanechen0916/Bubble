@@ -3,6 +3,7 @@
  */
 import { DialogBase } from 'DialogBase';
 let store = require('store');
+
 let userInfo = store.global;
 cc.Class({
     extends: DialogBase,
@@ -41,6 +42,11 @@ cc.Class({
         closeBtn: {
             default: null,
             type: cc.Node,
+        },
+
+        changeBtn: {
+            default: null,
+            type: cc.Node,
         }
     },
 
@@ -59,6 +65,9 @@ cc.Class({
                 console.log('status change', walletAndwalletInfo);
             } 
         );
+        await tonConnectUI.connectWallet;
+        const address = new TonWeb.utils.Address(tonConnectUI.currentAccount.address);
+        console.log(address.toString({ isUserFriendly: true, isBounceable: false }))
         // try {
         //     const connectedWallet = await tonConnectUI.connectWallet();
         //     console.log("Connected to wallet:", connectedWallet);
@@ -68,7 +77,7 @@ cc.Class({
         //     console.log("Connected to wallet:", connectedWallet);
         // }
         // 如果需要，可以对connectedWallet做一些事情
-        console.log(connectedWallet);
+        // console.log(connectedWallet);
     },
 
     onLoad () {
@@ -77,10 +86,13 @@ cc.Class({
         this.myChangeBtn.on('click', function () {
             console.log('connect wallet');
             // 调用函数
-            this.connectToWallet().catch(error => {
-                console.error("Error connecting to wallet:", error);
-            });
+            this.connectToWallet();
         }, this);
+
+        if (tonConnectUI.connected) {
+            tonConnectUI.disconnect();
+            // this.changeBtn.active = false;
+        }
 
         userInfo.wallet && (this.myCreatedName.string = userInfo.wallet);
 
