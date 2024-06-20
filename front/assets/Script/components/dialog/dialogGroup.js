@@ -45,14 +45,28 @@ cc.Class({
     },
 
     async connectToWallet() {
-        try {
-            const connectedWallet = await tonConnectUI.connectWallet();
-            console.log("Connected to wallet:", connectedWallet);
-        } catch(error) {
-            console.error("Error connecting to wallet:", error);
-            const connectedWallet = await tonConnectUI.restoreConnection();
-            console.log("Connected to wallet:", connectedWallet);
-        }
+        const currentWallet = tonConnectUI.wallet;
+        const currentWalletInfo = tonConnectUI.walletInfo;
+        const currentAccount = tonConnectUI.account;
+        const currentIsConnectedStatus = tonConnectUI.connected;
+        console.log("currentWallet:", currentWallet);
+        console.log("currentWalletInfo:", currentWalletInfo);
+        console.log("currentAccount:", currentAccount);
+        console.log("currentIsConnectedStatus:", currentIsConnectedStatus);
+        const unsubscribe = tonConnectUI.onStatusChange(
+            walletAndwalletInfo => {
+                // update state/reactive variables to show updates in the ui
+                console.log('status change', walletAndwalletInfo);
+            } 
+        );
+        // try {
+        //     const connectedWallet = await tonConnectUI.connectWallet();
+        //     console.log("Connected to wallet:", connectedWallet);
+        // } catch(error) {
+        //     console.error("Error connecting to wallet:", error);
+        //     const connectedWallet = await tonConnectUI.restoreConnection();
+        //     console.log("Connected to wallet:", connectedWallet);
+        // }
         // 如果需要，可以对connectedWallet做一些事情
         console.log(connectedWallet);
     },
