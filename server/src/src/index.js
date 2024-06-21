@@ -33,6 +33,8 @@ var src_default = {
 		switch (path) {
 			case '/user/info':
 				return userHandler.info(request, env, user);
+			case '/user/bind':
+				return userHandler.bind(request, env, user);
 			case '/score/add':
 				return scoreHandler.add(request, env, user);
 			default:

@@ -2,7 +2,7 @@ let token = '';
 const host = 'https://api.bit123.finance';
 // const host = 'http://localhost:8787';
 
-function getUserInfo() {
+function getUserInfo () {
     console.log('>>>>>tgInitData', window.Telegram.WebApp.initData);
     if (!window.Telegram.WebApp.initData) {
         return Promise.resolve();
@@ -14,24 +14,37 @@ function getUserInfo() {
         },
         body: JSON.stringify({ initData: window.Telegram.WebApp.initData }),
     }).then(res => res.json())
-    .then(res => {
-        if (res.code !== 0) {
-            throw new Error(res.msg);
-        }
-        token = res.data.token;
-        return res.data;
-    });
-    // return post(`${host}/user/info`, { initData: tgInitData }).then(res => {
-    //     if (res.code !== 0) {
-    //         throw new Error(res.msg);
-    //     }
-    //     console.log(res);
-    //     token = res.token;
-    //     return res.data;
-    // });
+        .then(res => {
+            if (res.code !== 0) {
+                throw new Error(res.msg);
+            }
+            token = res.data.token;
+            return res.data;
+        });
 }
 
-function updateScore(score) {
+function bindWallet (wallet) {
+    console.log('>>>>>tgInitData', window.Telegram.WebApp.initData);
+    if (!window.Telegram.WebApp.initData) {
+        return Promise.resolve();
+    }
+    return fetch(`${host}/user/bind`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ initData: window.Telegram.WebApp.initData, wallet }),
+    })
+        .then(res => res.json())
+        .then(res => {
+            if (res.code !== 0) {
+                throw new Error(res.msg);
+            }
+            return res.data;
+        });
+}
+
+function updateScore (score) {
     console.log('>>>>>tgInitData', window.Telegram.WebApp.initData);
     if (!window.Telegram.WebApp.initData) {
         return Promise.resolve();
@@ -43,13 +56,13 @@ function updateScore(score) {
         },
         body: JSON.stringify({ initData: window.Telegram.WebApp.initData, score, token }),
     }).then(res => res.json())
-    .then(res => {
-        if (res.code !== 0) {
-            throw new Error(res.msg);
-        }
-        token = res.data.token;
-        return res.data;
-    });
+        .then(res => {
+            if (res.code !== 0) {
+                throw new Error(res.msg);
+            }
+            token = res.data.token;
+            return res.data;
+        });
     // post(`${host}/score/add`, { initData: tgInitData, score, token }).then(res => {
     //     if (res.code !== 0) {
     //         throw new Error(res.msg);
@@ -80,15 +93,16 @@ function generateQueneRunner () {
                     return run();
                 }
             });
-        }
+        };
         if (quene.length === 1) {
             return run();
         }
         return Promise.resolve();
-    }
+    };
 }
 
 module.exports = {
+    bindWallet,
     getUserInfo,
     updateScore,
     scoreQueneRunner: generateQueneRunner(),

@@ -1007,8 +1007,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 257.11,
-      "height": 75.6
+      "width": 197.77,
+      "height": 63
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1062,8 +1062,8 @@
     "_dstBlendFactor": 771,
     "_string": "CONNECT",
     "_N$string": "CONNECT",
-    "_fontSize": 52,
-    "_lineHeight": 60,
+    "_fontSize": 40,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -3018,6 +3018,9 @@
     },
     "myChangeBtn": {
       "__id__": 21
+    },
+    "myChangeBtnTxt": {
+      "__id__": 23
     },
     "createdNode": {
       "__id__": 17
