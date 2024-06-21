@@ -59,7 +59,7 @@ cc.Class({
     async setWalletInfo(rebind = false) {
         const address = new TonWeb.utils.Address(tonConnectUI.account.address);
         const wallet = address.toString({ isUserFriendly: true, isBounceable: false });
-        this.myCreatedName.string = wallet;
+        this.myCreatedName.string = wallet.slice(0, 8) + '...' + wallet.slice(-8);
         this.myChangeBtnTxt.string = 'connected';
         this.myChangeBtnTxt.node.color = cc.color(0, 255, 0);
         this.myChangeBtn.getComponent(cc.Button).interactable = false;
