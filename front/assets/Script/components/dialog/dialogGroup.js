@@ -72,7 +72,7 @@ cc.Class({
         this.closeBtn.on('click', this.onCloseBtn, this);
 
         this.myChangeBtn.on('click', async function () {
-            await tonConnectUI.connectWallet;
+            await tonConnectUI.connectWallet();
             this.setWalletInfo(true);
         }, this);
 
